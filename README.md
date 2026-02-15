@@ -9,6 +9,14 @@ DMP Manage Service - a CRUD HTTP API for managing audience "Segments."
 
 ## Quick start
 
+Clone the repository and make sure the dependencies are synced up:
+
+    git clone https://github.com/kodeart/segment-service
+    cd segment-service
+    go mod tidy
+
+Setup and run:
+
     cp .env.example .env
     docker compose up -d
     go run cmd/server/main.go
