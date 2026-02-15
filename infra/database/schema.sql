@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS segments
+(
+    id          INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name        TEXT      NOT NULL,
+    ttl_seconds INT,
+    created_at  TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at  TIMESTAMP NOT NULL DEFAULT NOW(),
+    deleted_at  TIMESTAMP          DEFAULT NULL
+);
