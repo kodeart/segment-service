@@ -21,12 +21,12 @@ Server runs on port 8070 by default.
 
 Create a local `.env` file (you can start from `.env.example`).
 
-All variables are optional:
+Configure if needed:
 
 - `SERVER_PORT` — HTTP port for the service (default: 8070)
 - `POSTGRES_HOST` — Postgres host (use `127.0.0.1` for local dev)
-- `POSTGRES_PORT` — Postgres port for `segments_service` (default: 5433)
-- `POSTGRES_TEST_PORT` — Postgres port for `segments_service_test` (default: 5435)
+- `POSTGRES_PORT` — Postgres port for `segment-db` (default: 5433)
+- `POSTGRES_TEST_PORT` — Postgres port for `segment-test-db` (default: 5435)
 - `POSTGRES_USER`
 - `POSTGRES_PASSWORD`
 - `POSTGRES_DB`
@@ -36,8 +36,8 @@ All variables are optional:
 
 This repo provides two Postgres containers:
 
-- `segments_service` — development database
-- `segments_service_test` — database used by tests
+- `segment-db` — development database
+- `segment-test-db` — database used by tests
 
 Start both:
 
@@ -52,3 +52,9 @@ On `schema.sql` changes, you must wipe the data directories if you want Postgres
     docker compose down -v
     rm -rf ./tmp/pgdata ./tmp/pgdata_test
     docker compose up -d
+
+## Testing
+
+Docker containers must run:
+
+    go test -v ./...
